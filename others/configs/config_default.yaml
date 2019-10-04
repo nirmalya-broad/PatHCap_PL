@@ -1,0 +1,98 @@
+Key_base: /broad/IDP-Dx_storage/MOC/Key_files/
+Seq_base: /broad/IDP-Dx_storage/MOC/RawSeqData/
+Temp_path: /broad/hptmp/RNASeq_proj/
+Bam_path: /broad/IDP-Dx_storage/idpweb/data/
+Results_path: /broad/IDP-Dx_storage/RNASeq_results/
+DE_path: /broad/IDP-Dx_storage/RNASeq_results/
+Transfer_path: /broad/hptmp/MOC/transfer/
+
+
+#----------------------------
+# Most of the time the host can be either mouse or human. It is expected that
+# the host reference would be prepated
+
+Suffix_s1: .unmapped.1.fastq
+Suffix_s2: .unmapped.2.fastq
+Suffix_ne:  _L001_R1_merged.fastq
+
+strand_dir:  reverse 
+RtS_dict_file:  /broad/IDP-Dx_work/nirmalya/pipeline/barcodes/rts_bcs.txt 
+AllSeq_dict_file:  /broad/IDP-Dx_work/nirmalya/pipeline/barcodes/allseq_bcs.txt
+
+P7:             P7_Index
+P5:             P5_Index
+Proj:           Project_ID
+ID:             Sample_ID
+LC_method:      LC_method
+bc:             Barcode_seq
+Seq_type:       Sequencer
+Seq_dir:        Directory
+Seq_file:       Path_to_SeqFile
+Flowcell:       Flowcell
+Lane:           Lane
+Ref_accession:  Bacterial_reference
+Host_reference: Host_reference
+Strain:         Strain_ID
+Read_pairing:   Read_pairing
+Path_to_SeqFile: Path_to_SeqFile
+
+#----------------------------------------------------
+# This would be the entries that the user should not change,
+# unless required.
+
+delim: /
+dict_builder: /broad/IDP-Dx_work/nirmalya/research/BarcodeSplitter/dict_builder
+bc_splitter: /broad/IDP-Dx_work/nirmalya/research/BarcodeSplitter/bc_splitter
+bc_splitter_rts: /broad/IDP-Dx_work/nirmalya/research/BarcodeSplitter/bc_splitter_rts
+bc_splitter_rts_se: /broad/IDP-Dx_work/nirmalya/research/BarcodeSplitter/bc_splitter_rts_se
+sam_fragcount: /broad/IDP-Dx_work/nirmalya/research/read_counter/sam_fragcount
+paired_only_script: /broad/IDP-Dx_work/nirmalya/research/read_counter/paired_only
+remove_dup_script: /broad/IDP-Dx_work/nirmalya/research/read_counter/remove_dup
+frag_to_gene_count: /broad/IDP-Dx_work/nirmalya/research/read_counter/frag_to_gene_count
+metrics_gen: /broad/IDP-Dx_work/nirmalya/research/read_counter/metrics_gen
+split_plot_path:  /broad/IDP-Dx_work/nirmalya/research/BarcodeSplitter/plot_dist.R
+bwa: /broad/IDP-Dx_work/nirmalya/local/bin/bwa
+samtools: /broad/IDP-Dx_work/nirmalya/local/bin/samtools
+rsem-prepare-reference: /broad/IDP-Dx_work/nirmalya/local/bin/rsem-prepare-reference
+rsem-calculate-expression: /broad/IDP-Dx_work/nirmalya/local/bin/rsem-calculate-expression
+salmon: /broad/IDP-Dx_work/nirmalya/local/bin/salmon
+featureCounts: /broad/IDP-Dx_work/nirmalya/local/bin/featureCounts
+cutadapt: /broad/IDP-Dx_work/nirmalya/local/bin/cutadapt
+JLCounter: /broad/IDP-Dx_work/nirmalya/pipeline/beta/shell_scripts/SAM_to_counts2.sh
+picard_bindir: /broad/IDP-Dx_work/nirmalya/tools/picard/latest
+AllSeq_read_trim: /broad/IDP-Dx_work/nirmalya/research/rust_code/allseq_read_trim/target/release/AllSeq_read_trim
+UGER_cbp: /broad/IDP-Dx_work/nirmalya/tools/ugetools/UGE_SUBMISSIONS/UGER_cmd_batch_processor.py
+patho_dbpath: /broad/IDP-Dx_storage/NCBI_files2/
+host_dbpath: /broad/IDP-Dx_storage/Host_reference/
+STAR: /broad/IDP-Dx_work/nirmalya/tools/bin/STAR
+tdf_str:  /broad/IDP-Dx_storage/BactRAP/scripts/bam2tdf-14/bam2tdf.jar
+human_ref_str:  Human_hg38
+mouse_ref_str:  Mouse_mm10
+rabbit_ref_str:  OryCun2.0
+zebrafish_ref_str:  Zebrafish_GRCz11
+bbmap_path: /broad/IDP-Dx_work/nirmalya/local/bin/bbmap.sh 
+# thread count and memory for host side alignment:q
+patho_thread_count: 1
+patho_memory: 8
+host_thread_count: 4
+host_memory: 8
+mouse_transcript_gene:  /broad/IDP-Dx_storage/Host_reference/data/Mouse_mm10_transcript_gene.txt
+rabbit_transcript_gene:  /broad/IDP-Dx_storage/Host_reference/data/OryCun2.0_transcript_gene.txt
+human_transcript_gene:  /broad/IDP-Dx_storage/Host_reference/data/Human_hg38_transcript_gene.txt
+zebrafish_transcript_gene:  /broad/IDP-Dx_storage/Host_reference/data/Zebrafish_transcript_gene.txt
+uminorm_path: /broad/IDP-Dx_work/nirmalya/research/UMINormalize/umi_norm
+moc_file_copy_1: /broad/IDP-Dx_storage/MOC/files/MOC_RNA-Seq_data_UserGuide_CURRENT.docx 
+read_trimmer: /broad/IDP-Dx_work/nirmalya/research/read_trimmer/read_trimmer
+
+# Added as a fix of issue 41 (https://github.com/broadinstitute/PipelineII/issues/41) 
+Pipeline_bcLog: /broad/IDP-Dx_work/nirmalya/pipeline/beta/shell_scripts/Pipeline_bcLog.sh
+corr_script: /broad/IDP-Dx_work/nirmalya/pipeline/beta/rscripts/corr2.R
+gff_parser: /broad/IDP-Dx_work/nirmalya/pipeline/beta/shell_scripts/gff_parse3.sh
+RPG_metrics_script: /broad/IDP-Dx_work/nirmalya/pipeline/beta/shell_scripts/RPG_metrics5.sh
+Data_finish_script: /broad/IDP-Dx_work/nirmalya/pipeline/beta/shell_scripts/Data_finish.sh
+bcLog_metrics_script: /broad/IDP-Dx_work/nirmalya/pipeline/beta/shell_scripts/Pipeline_bcLog.sh
+trim_script: /broad/IDP-Dx_work/nirmalya/pipeline/beta/shell_scripts/fastq_trim2.sh
+picard_metrics: /broad/IDP-Dx_work/nirmalya/pipeline/beta/shell_scripts/PICARD_metrics.sh
+picard_metrics_parse: /broad/IDP-Dx_work/nirmalya/pipeline/beta/shell_scripts/PICARD_metrics_parse.sh
+fpkm_script: /broad/IDP-Dx_work/nirmalya/pipeline/beta/shell_scripts/counts_to_FPKMO.sh
+bestacc_script: /broad/IDP-Dx_work/nirmalya/pipeline/beta/shell_scripts/Pipeline_bestAcc2.sh 
