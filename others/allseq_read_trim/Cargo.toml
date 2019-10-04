@@ -1,0 +1,7 @@
+[package]
+name = "AllSeq_read_trim"
+version = "0.1.0"
+authors = ["nirmalya <nirmalya@broadinstitute.org>"]
+
+[dependencies]
+clap = "2"
