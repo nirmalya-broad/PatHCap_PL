@@ -26,7 +26,6 @@ from lib.mapper import Mapper
 from lib.confdict import ConfDict
 from lib.splitter import Splitter
 from lib.expander import Expander
-from lib.garbagesorter import GarbageSorter
     
 class PipelineII:   
     def __init__(self, options):
@@ -787,7 +786,6 @@ class PipelineII:
         if do_align or do_count or do_umi_count:
             self.exe_alignment(KeyTblFinal, sample_prefix, sample_bc)
         if do_patho and do_metrics:
-            else:
                 self.gen_patho_metrics(KeyTblFinal)
                 self.write_patho_gv_session_info()
                 if rm_rts_dup:
